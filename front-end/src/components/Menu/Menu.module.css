@@ -1,0 +1,30 @@
+.menu{
+    grid-area: m;
+    background-color: chartreuse;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr  1fr 1fr;
+}
+
+.active{
+    font-weight: bold;
+    color: white;
+}
+.link{
+
+    text-decoration: none;
+}
+.nav{
+
+}
+.link p{
+    padding: 2px;
+    margin: 0;
+    text-align: center;
+    font-family: "Calibri Light";
+    font-style: italic;
+
+}
+
+

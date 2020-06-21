@@ -1,0 +1,40 @@
+.App {
+
+  display: grid;
+  grid-template-areas:
+  'h h'
+  's m'
+  's w'
+  'f f';
+
+  grid-template-columns: 1fr 4fr ;
+  grid-template-rows: 3fr 1fr 100% 1fr ;
+}
+/*.header{*/
+/*  grid-area: h;*/
+/*  background-color: aqua;*/
+
+
+/*}*/
+/*.menu{*/
+/*  grid-area: m;*/
+/*  background-color: chartreuse;*/
+
+/*}*/
+/*.sidebar{*/
+/*  grid-area: s;*/
+/*  background-color: darkgoldenrod;*/
+
+/*}*/
+/*.footer{*/
+/*  grid-area: f;*/
+/*  background-color: orangered;*/
+
+/*}*/
+/*.wheels{*/
+/*  grid-area: w;*/
+/*  background-color: darkblue;*/
+
+/*}*/
+
+

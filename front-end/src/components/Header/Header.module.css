@@ -1,0 +1,19 @@
+.header{
+    grid-area: h;
+    background-color: white;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+}
+.head{
+    font-size: 15px;
+    margin: 20px;
+    padding: 0;
+    grid-column: 3;
+
+    text-align: right;
+}
+.img{
+    grid-column: 2;
+}

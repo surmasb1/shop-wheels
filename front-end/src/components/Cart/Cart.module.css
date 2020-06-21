@@ -1,0 +1,22 @@
+.wheels{
+    display: grid;
+    grid-area: w;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 400px 400px 400px 400px  ;
+    text-align: center;
+}
+.wheel{
+    border: 1px solid black;
+    background-color: aqua;
+    padding: 0;
+    margin: 0;
+}
+.wheel h2 {
+    padding: 0;
+    margin: 0;
+}
+.wheel p {
+    padding: 0;
+    margin: 0;
+}
