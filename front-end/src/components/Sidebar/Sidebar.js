@@ -75,19 +75,19 @@ const Sidebar= (props)=>{
                 <div></div>
                 :
                 <div>
-                <div>
+                    <div>
 
-                <span>velik 1</span>
-                </div>
-                <div>
-                <span>velik 2</span>
-                </div>
-                <div>
-                <span>velik 3</span>
-                </div>
-                <div>
-                <span>velik 4</span>
-                </div>
+                        <span>velik 1</span>
+                    </div>
+                    <div>
+                        <span>velik 2</span>
+                    </div>
+                    <div>
+                        <span>velik 3</span>
+                    </div>
+                    <div>
+                        <span>velik 4</span>
+                    </div>
 
                 </div>
             }
