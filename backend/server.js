@@ -4,7 +4,7 @@ const app = express();
 
 const arrWheel=[
     {
-        marka: 'nokian12',
+        marka: 'nokian1',
         age:10,
         radius:16,
         stan: 'good',
@@ -119,6 +119,10 @@ const arrWheel=[
 ];
 
 app.get("/api/product", (req, res)=>{
-    res.send(arrWheel);
+    res.status(200).json(arrWheel)
+  //  res.send(arrWheel);
 });
+
+
+
 app.listen(5000, ()=>{console.log('Server have been started...')})

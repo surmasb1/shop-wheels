@@ -10,6 +10,7 @@ const TO_UP ='TO_UP'
 const TO_LOW = "TO_LOW"
 const SHOW_RADIUS = 'SHOW_RADIUS'
 const  SET_WHEELS = 'SET_WHEELS'
+const IS_FETCHING = 'IS_FETCHING'
 
 let initialState={
     wheels:
@@ -137,7 +138,8 @@ let initialState={
 
     },
     wheelsCopy:[],
-    wheelsCopy0:[]
+    wheelsCopy0:[],
+    isFetching:false
 }
 
 const wheelReducer = (state=initialState, action)=> {
@@ -244,12 +246,18 @@ const wheelReducer = (state=initialState, action)=> {
                 wheels: [...state.wheels, ...action.wheels ],
                 wheelsCopy: [...action.wheels]
             }
+        case IS_FETCHING:
+
+            return {
+                ...state,
+                isFetching: action.body
+            }
             default:
             return state;
     }
 }
 
-//export const changehide =() =>({ type: CHANGE_HIDE })
+export const setIsFetching =(body) =>({ type:  IS_FETCHING,body })
 export  const setWheels= (wheels) =>({type: SET_WHEELS,wheels })
 export const  showToRadius = (r,flag) =>({ type: SHOW_RADIUS , r , flag })
 export const  searchWheel = (text) =>({ type: SEARCH_WHEEL, text })

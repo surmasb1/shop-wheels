@@ -4,7 +4,7 @@ import  axios from 'axios'
 
 const Admin = (props) => {
     let newWheel = props.newWheels || {}
-   console.log(props)
+ //  console.log(props)
     let markaWheel = React.createRef()
     let ageWheel = React.createRef()
     let radiusWheel = React.createRef()
@@ -12,19 +12,18 @@ const Admin = (props) => {
     let priceWheel = React.createRef()
 
 
-    const [products, setProduct] = useState([])
-    useEffect(() => {
-        const fetchData = async () => {
-            const a = await axios.get("/api/product")
-            setProduct(a.data)
-            // console.log(a)
-        }
-        fetchData();
-        return () => {
-        }
-
-    }, [])
-    console.log(products)
+    // const [products, setProduct] = useState([])
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         const a = await axios.get("/api/product")
+    //         setProduct(a.data)
+    //         // console.log(a)
+    //     }
+    //     fetchData();
+    //
+    //
+    // }, [])
+    // console.log(products)
 
 
 
