@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from 'react';
-import  axios from 'axios'
+import React from 'react';
+
+import { WheelAPI} from "../../api/api";
 
 
 const Admin = (props) => {
-    let newWheel = props.newWheels || {}
+    let newWheel = props.newWheels
  //  console.log(props)
     let markaWheel = React.createRef()
     let ageWheel = React.createRef()
@@ -32,11 +33,11 @@ const Admin = (props) => {
     let updateWheel
     let onChangeWheel = ()=>{
          updateWheel ={
-                marka: markaWheel.current.value,
-                age:ageWheel.current.value,
-                radius:radiusWheel.current.value,
-                stan: stanWheel.current.value,
-                price:priceWheel.current.value
+             marka: markaWheel.current.value,
+             age:Number(ageWheel.current.value),
+             radius: Number(radiusWheel.current.value),
+             stan: stanWheel.current.value,
+             price:Number(priceWheel.current.value)
         }
        props.updataWheels(updateWheel)
 
@@ -54,7 +55,20 @@ const Admin = (props) => {
             alert('НЕ заполнена одна из опций')
             }
         else {
-            props.addwheels(updateWheel)
+            let updateWheel0 ={
+                marka: markaWheel.current.value,
+                age:Number(ageWheel.current.value),
+                radius: Number(radiusWheel.current.value),
+                stan: stanWheel.current.value,
+                price:Number(priceWheel.current.value)
+            }
+            console.log(updateWheel0)
+
+            console.log(newWheel)
+            props.ThunkAddWheel(updateWheel0)
+          //WheelAPI.request('api/product','POST',updateWheel0)
+
+            // props.addwheels(updateWheel)
         }
 
 
@@ -75,7 +89,8 @@ const Admin = (props) => {
                 </div>
                 <div>
                     <span>age</span>
-                    <textarea
+                    <input
+                        type="number"
                         onChange={onChangeWheel}
                              value = {newWheel.age}
                              ref={ageWheel}
@@ -83,7 +98,8 @@ const Admin = (props) => {
                 </div>
                 <div>
                     <span>radius</span>
-                    <textarea
+                    <input
+                        type="number"
                         onChange={onChangeWheel}
                             value = {newWheel.radius}
                             ref={radiusWheel}
@@ -99,7 +115,8 @@ const Admin = (props) => {
                 </div>
                 <div>
                     <span>price</span>
-                    <textarea
+                    <input
+                        type="number"
 
                         onChange={onChangeWheel}
                             value = {newWheel.price}

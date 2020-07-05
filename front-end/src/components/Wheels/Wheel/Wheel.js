@@ -3,8 +3,8 @@ import s from './Wheel.module.css'
 
 const Wheel = (props) => {
     console.log(props)
-    const wheels = props.wheels
-    const wheel = props.wheels[props.whellID - 1]
+    const wheels = props.wheel
+    const wheel = props.wheel[0]
     return (
         wheels.length > 0 ? <div>
             <div className={s.wheel}>

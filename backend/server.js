@@ -1,6 +1,8 @@
 import express from 'express';
+//let router = express.Router()
+const app = express()
+app.use(express.json())
 
-const app = express();
 
 const arrWheel=[
     {
@@ -123,6 +125,19 @@ app.get("/api/product", (req, res)=>{
   //  res.send(arrWheel);
 });
 
+app.get("/wheels/api/product/:id", (req, res)=>{
+
+    res.status(200).json(arrWheel[req.params.id-1])
+
+});
+
+app.post("/api/product", (req, res)=>{
+    console.log(req.body)
+ let wheel = {...req.body, cart:false, count:0, id:arrWheel.length+1,img:'https://i2.rozetka.ua/goods/16232738/171057209_images_16232738754.jpg'}
+    arrWheel.push(wheel)
+ res.status(201).json(arrWheel)
+
+});
 
 
 app.listen(5000, ()=>{console.log('Server have been started...')})

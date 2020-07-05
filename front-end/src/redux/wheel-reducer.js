@@ -1,9 +1,10 @@
+import {WheelAPI} from "../api/api";
 
-//const CHANGE_HIDE ='CHANGE_HIDE'
-const ADD_WHEELS = 'ADD_WHEELS';
+
+//const ADD_WHEELS = 'ADD_WHEELS';
 const UPDATE_NEW_WHEELS = 'UPDATE_NEW_WHEELS';
 const CHANGE_CART = 'CHANGE_CART';
-const ADD_COUNT = 'ADD_COUNT';
+ const ADD_COUNT = 'ADD_COUNT';
 const MINUS_COUNT = 'MINUS_COUNT';
 const SEARCH_WHEEL ='SEARCH_WHEEL';
 const TO_UP ='TO_UP'
@@ -11,124 +12,10 @@ const TO_LOW = "TO_LOW"
 const SHOW_RADIUS = 'SHOW_RADIUS'
 const  SET_WHEELS = 'SET_WHEELS'
 const IS_FETCHING = 'IS_FETCHING'
+const GET_WHEEL ='GET_WHEEL'
 
 let initialState={
-    wheels:
-        [
-        // {
-        //     marka: 'nokian1',
-        //     age:10,
-        //     radius:16,
-        //     stan: 'good',
-        //     price:55,
-        //     id: 1,
-        //     cart:false,
-        //     count:0 ,
-        //    hide: false,
-        //     img:'https://i2.rozetka.ua/goods/16232738/171057209_images_16232738754.jpg'
-        // },
-        // {   marka: 'rossava1',
-        //     age:8,
-        //     radius:17,
-        //     stan: 'good',
-        //     price:35,
-        //     id: 2,
-        //     cart:false,
-        //     count: 0,
-        //    hide: false,
-        //     img:'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQjjlCFqqTCH80LkUvDJywVMvwYzQAbnMNhAEzUR_EtH9ecbBDe&usqp=CAU'
-        // },
-        // {   marka: 'michelin1',
-        //     age:5,
-        //     radius:18,
-        //     stan: 'soso',
-        //     price:60,
-        //     id: 3,
-        //     cart:false,
-        //     count: 0,
-        //     hide: false,
-        //     img:'https://rezina.cc/products/thumbs/000/009/923/9923_240x240.jpg?v=1588246642'
-        // },
-        // {   marka: 'Bridgestone1',
-        //     age:7,
-        //     radius:19,
-        //     stan: 'ифв',
-        //     price:20,
-        //     id: 4,
-        //     cart:false,
-        //     count: 0,
-        //     hide: false,
-        //     img:'https://i1.rozetka.ua/goods/3737330/34826895_images_3737330371.jpg'
-        // },
-        // {   marka: 'hankook1',
-        //     age:12,
-        //     radius:19,
-        //     stan: 'bad',
-        //     price:15,
-        //     id: 5,
-        //     cart:false,
-        //     count: 0,
-        //    hide: false,
-        //     img:'https://shinadiski.com.ua/uploads/models/tyre/2426_1.jpg'
-        // },
-        // {
-        //     marka: 'nokian2',
-        //     age:10,
-        //     radius:16,
-        //     stan: 'good',
-        //     price:43,
-        //     id: 6,
-        //     cart:false,
-        //     count: 0,
-        //     hide: false,
-        //     img:'https://i2.rozetka.ua/goods/16232738/171057209_images_16232738754.jpg'
-        // },
-        // {   marka: 'rossava2',
-        //     age:8,
-        //     radius:17,
-        //     stan: 'good',
-        //     price:25,
-        //     id: 7,
-        //     cart:false,
-        //     count: 0,
-        //     hide: false,
-        //     img:'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQjjlCFqqTCH80LkUvDJywVMvwYzQAbnMNhAEzUR_EtH9ecbBDe&usqp=CAU'
-        // },
-        // {   marka: 'michelin2',
-        //     age:5,
-        //     radius:20,
-        //     stan: 'soso',
-        //     price:48,
-        //     id: 8,
-        //     cart:false,
-        //     count: 0,
-        //     hide: false,
-        //     img:'https://rezina.cc/products/thumbs/000/009/923/9923_240x240.jpg?v=1588246642'
-        // },
-        // {   marka: 'Bridgestone2',
-        //     age:7,
-        //     radius:20,
-        //     stan: 'ифв',
-        //     price:56,
-        //     id: 9,
-        //     cart:false,
-        //     count: 0,
-        //     hide: false,
-        //     img:'https://i1.rozetka.ua/goods/3737330/34826895_images_3737330371.jpg'
-        // },
-        // {   marka: 'hankook2',
-        //     age:12,
-        //     radius:18,
-        //     stan: 'bad',
-        //     price:54,
-        //     id: 10,
-        //     cart:false,
-        //     count: 0,
-        //     hide: false,
-        //     img:'https://shinadiski.com.ua/uploads/models/tyre/2426_1.jpg'
-        // }
-
-    ],
+    wheels:[],
     newWheels:{
         marka: 'marka',
         age:'age',
@@ -139,31 +26,36 @@ let initialState={
     },
     wheelsCopy:[],
     wheelsCopy0:[],
-    isFetching:false
+    isFetching:false,
+    currentWheel:[]
 }
 
 const wheelReducer = (state=initialState, action)=> {
     switch (action.type) {
+        case GET_WHEEL:
+            return {
+                ...state,
+                currentWheel: [action.body]
+            }
         case UPDATE_NEW_WHEELS:
             return {
                 ...state,
                 newWheels: {...action.updateWheel,cart:false, count:0, id:state.wheels.length+1,img:'https://i2.rozetka.ua/goods/16232738/171057209_images_16232738754.jpg'  }
             }
-        case ADD_WHEELS:
-            return {
-                ...state,
-                wheels: [...state.wheels, state.newWheels
-                    ],
-                newWheels: {
-                    marka: '',
-                    age: '',
-                    radius: '',
-                    stan: '',
-                    price:'',
-                    id: '',
-                    img:''
-                }
-            }
+        // case ADD_WHEELS:
+        //     return {
+        //         ...state,
+        //         wheels: [...state.wheels, state.newWheels],
+        //         newWheels: {
+        //             marka: '',
+        //             age: '',
+        //             radius: '',
+        //             stan: '',
+        //             price:'',
+        //             id: '',
+        //             img:''
+        //         }
+        //     }
         case CHANGE_CART:
             return {
                 ...state,
@@ -243,9 +135,20 @@ const wheelReducer = (state=initialState, action)=> {
         case SET_WHEELS:
             return {
                 ...state,
-                wheels: [...state.wheels, ...action.wheels ],
-                wheelsCopy: [...action.wheels]
-            }
+                // wheels: [...state.wheels, action.wheels.filter(w=>w.radius>state.wheels.length+1)],
+                wheels: [...action.wheels],
+                wheelsCopy: [...action.wheels],
+                currentWheel: [],
+                newWheels: {
+                    marka: '',
+                    age: '',
+                    radius: '',
+                    stan: '',
+                    price:'',
+                    id: '',
+                    img:''
+                }
+                            }
         case IS_FETCHING:
 
             return {
@@ -261,11 +164,53 @@ export const setIsFetching =(body) =>({ type:  IS_FETCHING,body })
 export  const setWheels= (wheels) =>({type: SET_WHEELS,wheels })
 export const  showToRadius = (r,flag) =>({ type: SHOW_RADIUS , r , flag })
 export const  searchWheel = (text) =>({ type: SEARCH_WHEEL, text })
+export const  getWheel = (body) =>({ type: GET_WHEEL, body })
 export const  WheelsToUp = () =>({ type: TO_UP })
 export const  WheelsToLow = () =>({ type: TO_LOW })
 export const  minusCount = (idWheel) =>({ type: MINUS_COUNT, idWheel })
 export const  addCount = (idWheel) =>({ type: ADD_COUNT, idWheel })
 export const  changeCart = (idWheel) =>({ type: CHANGE_CART, idWheel })
-export const addWheels = (w) => ({type: ADD_WHEELS, w})
+// export const addWheels = (w) => ({type: ADD_WHEELS, w})
 export const updataWheels = (updateWheel) => ({type: UPDATE_NEW_WHEELS, updateWheel})
+
+
+export const ThunkGetWheels = (Allwheels) => {
+   return  (dispatch) => {
+        dispatch(setIsFetching(true))
+       WheelAPI.getwheels()
+            .then(response => {
+                dispatch(setIsFetching(false))
+               // if (Allwheels.length === 0) {
+                    dispatch(setWheels(response.data))
+              //  }
+            })
+    }
+}
+
+export const ThunkGetWheel = (ID) => {
+    return  (dispatch) => {
+        dispatch(setIsFetching(true))
+        WheelAPI.getWheel(ID)
+            .then(response => {
+                dispatch(setIsFetching(false))
+                    dispatch(getWheel(response.data))
+
+            })
+    }
+}
+
+
+export const ThunkAddWheel = (wheel) => {
+    return  (dispatch) => {
+
+        WheelAPI.request('api/product','POST',wheel)
+                   .then(response => {
+                       console.log(response)
+
+                    dispatch(setWheels(response))
+
+            })
+    }
+}
+
 export default wheelReducer
