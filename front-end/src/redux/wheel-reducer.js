@@ -174,15 +174,15 @@ export const  changeCart = (idWheel) =>({ type: CHANGE_CART, idWheel })
 export const updataWheels = (updateWheel) => ({type: UPDATE_NEW_WHEELS, updateWheel})
 
 
-export const ThunkGetWheels = (Allwheels) => {
+export const ThunkGetWheels = () => {
    return  (dispatch) => {
         dispatch(setIsFetching(true))
        WheelAPI.getwheels()
             .then(response => {
                 dispatch(setIsFetching(false))
-               // if (Allwheels.length === 0) {
+
                     dispatch(setWheels(response.data))
-              //  }
+
             })
     }
 }
@@ -199,18 +199,14 @@ export const ThunkGetWheel = (ID) => {
     }
 }
 
-
-export const ThunkAddWheel = (wheel) => {
-    return  (dispatch) => {
-
-        WheelAPI.request('api/product','POST',wheel)
-                   .then(response => {
-                       console.log(response)
-
-                    dispatch(setWheels(response))
-
+export const ThunkAddWheel =  (wheel) => {
+    return async (dispatch) => {
+        await WheelAPI.request('api/product','POST',wheel)
+                   await (response => {
+                         dispatch(setWheels( response))
             })
     }
 }
+
 
 export default wheelReducer

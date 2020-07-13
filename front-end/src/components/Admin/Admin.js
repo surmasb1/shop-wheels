@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { WheelAPI} from "../../api/api";
 
 
 const Admin = (props) => {
@@ -25,8 +24,6 @@ const Admin = (props) => {
     //
     // }, [])
     // console.log(products)
-
-
 
 
 
@@ -55,17 +52,17 @@ const Admin = (props) => {
             alert('НЕ заполнена одна из опций')
             }
         else {
-            let updateWheel0 ={
-                marka: markaWheel.current.value,
-                age:Number(ageWheel.current.value),
-                radius: Number(radiusWheel.current.value),
-                stan: stanWheel.current.value,
-                price:Number(priceWheel.current.value)
-            }
-            console.log(updateWheel0)
+            // let updateWheel0 ={
+            //     marka: markaWheel.current.value,
+            //     age:Number(ageWheel.current.value),
+            //     radius: Number(radiusWheel.current.value),
+            //     stan: stanWheel.current.value,
+            //     price:Number(priceWheel.current.value)
+            // }
+            //console.log(updateWheel0)
 
             console.log(newWheel)
-            props.ThunkAddWheel(updateWheel0)
+            props.ThunkAddWheel(newWheel)
           //WheelAPI.request('api/product','POST',updateWheel0)
 
             // props.addwheels(updateWheel)
