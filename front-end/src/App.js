@@ -11,6 +11,7 @@ import CartContainer from "./components/Cart/CartContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import AdminContainer from "./components/Admin/AdminContainer";
 import SidebarContainer from "./components/Sidebar/SidebarContainer";
+import LoginContainer from "./components/Login/loginContainer";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
                   <Menu/>
                   <SidebarContainer/>
                   <Footer/>
+
               <Switch>
                   <Route exact path='/wheels'
                          render={() => <WheelsContainer/>}/>
@@ -31,6 +33,8 @@ function App() {
                          render={() => <CartContainer/>}/>
                   <Route  path='/admin'
                           render={() => <AdminContainer/>}/>
+                  <Route  path='/login'
+                          render={() => <LoginContainer/>}/>
               </Switch>
               </Provider>
           </BrowserRouter>

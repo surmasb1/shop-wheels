@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const uuid = require('uuid')
 
 const AllWheels = mongoose.model('AllWheels');
 
@@ -8,8 +9,11 @@ const getAllWheels = (req, res)=>{
         .then(wheels => res.status(200).json(wheels))
         .catch(err =>res.status(500).json(err));
 }
- const CreateWheel = (req, res)=> {
-    AllWheels.create({...req.body,cart:false, count:0, id:6, img:'https://i2.rozetka.ua/goods/16232738/171057209_images_16232738754.jpg'})
+ const CreateWheel = async (req, res)=> {
+    let idw= await AllWheels.collection.find().count()
+    // console.log(req.body)
+    // console.log(idw)
+    AllWheels.create({...req.body,cart:false, count:0, id:idw+1, img:'https://i2.rozetka.ua/goods/16232738/171057209_images_16232738754.jpg'})
          .then(createdWheel =>res.status(201).json(createdWheel))
         .catch(err =>res.status(500).json(err));
  };

@@ -1,4 +1,6 @@
 import React from 'react';
+import {Redirect} from "react-router-dom";
+import s from "./Admin.module.css";
 
 
 
@@ -40,7 +42,9 @@ const Admin = (props) => {
 
     }
 
-
+    let logouts=()=>{
+        props.logout()
+    }
 
     let sendWheel = () =>{
         if (markaWheel.current.value==='' ||
@@ -65,16 +69,21 @@ const Admin = (props) => {
             props.ThunkAddWheel(newWheel)
           //WheelAPI.request('api/product','POST',updateWheel0)
 
-            // props.addwheels(updateWheel)
+            props.addwheels()
         }
 
 
     }
 
-
+    if(!props.isAuth) {return <Redirect to={'/login'}/>}
 
     return (
         <div>
+            <div className={s.logout}>
+                <button onClick={
+                    logouts
+                }>logout</button>
+            </div>
             <div>
                 <div>
                     <span>marka</span>

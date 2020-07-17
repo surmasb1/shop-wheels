@@ -10,10 +10,10 @@ const User = mongoose.model('Col')
 const signIn =  (req, res)=>{
 
        const {email, password} = req.body;
-   User.findOne({email:req.body.email})
+   User.findOne({email})
        .exec()
           .then((user)=>{
-              console.log(user)
+              const {login} = user;
                if (!user){
                    res.status(401).json({message:'user doesnt exist' })
                }
@@ -21,7 +21,7 @@ const signIn =  (req, res)=>{
                const isValid =  bCrypt.compareSync(password, user.password);
                if (isValid){
                    const token =  jwt.sign(user._id.toString(), jwtSecret)
-                    res.json({token});
+                    res.json({token, email, login, });
                } else {
                    res.status(401).json({message: 'invalid password'})
                }
@@ -34,12 +34,15 @@ module.exports = {
 
 module.exports.regist =  async (req, res)=> {
     const candidate = await User.findOne({email: req.body.email})
+    const password0 = await bCrypt.hashSync(req.body.password,10)
 if(candidate){
-    res.status(409).json({message:'one more is yet'})
+    res.status(409).json({message:'Такий email  уже існує'})
 } else {
-    const user = new User({
+
+    const user =  new User({
         email:req.body.email,
-        password:req.body.password,
+        password: password0,
+        login:req.body.login
     })
     try{
         await user.save()

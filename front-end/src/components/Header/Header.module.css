@@ -17,3 +17,11 @@
 .img{
     grid-column: 2;
 }
+.login{
+    font-size: 12px;
+    margin: 0px;
+    padding: 0;
+    grid-column: 3;
+
+    text-align: right;
+}

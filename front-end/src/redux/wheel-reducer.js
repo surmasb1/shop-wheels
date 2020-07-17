@@ -1,7 +1,7 @@
 import {WheelAPI} from "../api/api";
 
 
-//const ADD_WHEELS = 'ADD_WHEELS';
+const ADD_WHEELS = 'ADD_WHEELS';
 const UPDATE_NEW_WHEELS = 'UPDATE_NEW_WHEELS';
 const CHANGE_CART = 'CHANGE_CART';
  const ADD_COUNT = 'ADD_COUNT';
@@ -42,20 +42,19 @@ const wheelReducer = (state=initialState, action)=> {
                 ...state,
                 newWheels: {...action.updateWheel,cart:false, count:0, id:state.wheels.length+1,img:'https://i2.rozetka.ua/goods/16232738/171057209_images_16232738754.jpg'  }
             }
-        // case ADD_WHEELS:
-        //     return {
-        //         ...state,
-        //         wheels: [...state.wheels, state.newWheels],
-        //         newWheels: {
-        //             marka: '',
-        //             age: '',
-        //             radius: '',
-        //             stan: '',
-        //             price:'',
-        //             id: '',
-        //             img:''
-        //         }
-        //     }
+        case ADD_WHEELS:
+            return {
+                ...state,
+                newWheels: {
+                    marka: '',
+                    age: '',
+                    radius: '',
+                    stan: '',
+                    price:'',
+                    id: '',
+                    img:''
+                }
+            }
         case CHANGE_CART:
             return {
                 ...state,
@@ -139,15 +138,7 @@ const wheelReducer = (state=initialState, action)=> {
                 wheels: [...action.wheels],
                 wheelsCopy: [...action.wheels],
                 currentWheel: [],
-                newWheels: {
-                    marka: '',
-                    age: '',
-                    radius: '',
-                    stan: '',
-                    price:'',
-                    id: '',
-                    img:''
-                }
+
                             }
         case IS_FETCHING:
 
@@ -170,7 +161,7 @@ export const  WheelsToLow = () =>({ type: TO_LOW })
 export const  minusCount = (idWheel) =>({ type: MINUS_COUNT, idWheel })
 export const  addCount = (idWheel) =>({ type: ADD_COUNT, idWheel })
 export const  changeCart = (idWheel) =>({ type: CHANGE_CART, idWheel })
-// export const addWheels = (w) => ({type: ADD_WHEELS, w})
+export const cleanNewWheels = () => ({type: ADD_WHEELS})
 export const updataWheels = (updateWheel) => ({type: UPDATE_NEW_WHEELS, updateWheel})
 
 

@@ -14,6 +14,9 @@ const Header= (props)=>{
                 <img src={img} width='50%' height="50%" alt="lorem"/>
             </NavLink>
             <div>
+                <NavLink to="/login">
+                <h5 className={s.login}>{props.isAuth? props.login: <p>Login</p>} </h5>
+            </NavLink>
                 <NavLink to="/cart">
                     <h5 className={s.head}>CART {wheels.length}</h5>
                 </NavLink>
