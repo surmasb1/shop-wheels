@@ -15,19 +15,18 @@ import Preloader from "../common/Preloder/Preloder";
 class WheelsContainer extends React.Component {
 
     componentDidMount() {
-      this.props.ThunkGetWheels(this.props.wheels)
+      this.props.ThunkGetWheels()
           }
 
     render() {
         return <>
             {this.props.isFetching ? <Preloader/>:
             <Wheels wheels={this.props.wheels}
-                                       changeCart={this.props.changeCart}
+                    changeCart={this.props.changeCart}
                     minusCount={this.props.minusCount}
                     addCount={this.props.addCount}
                     WheelsToUp={this.props.WheelsToUp}
                     WheelsToLow={this.props.WheelsToLow}
-
             />}
         </>
     }

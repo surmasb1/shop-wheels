@@ -12,6 +12,7 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 import AdminContainer from "./components/Admin/AdminContainer";
 import SidebarContainer from "./components/Sidebar/SidebarContainer";
 import LoginContainer from "./components/Login/loginContainer";
+import RouterUpdateWheelContainer from "./components/updateWheel/UpdateWheelContainer";
 
 
 function App() {
@@ -35,6 +36,9 @@ function App() {
                           render={() => <AdminContainer/>}/>
                   <Route  path='/login'
                           render={() => <LoginContainer/>}/>
+                  <Route  path='/update/:id'
+                          render={() => <RouterUpdateWheelContainer/>}/>
+
               </Switch>
               </Provider>
           </BrowserRouter>

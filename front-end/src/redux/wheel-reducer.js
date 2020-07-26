@@ -1,8 +1,7 @@
 import {WheelAPI} from "../api/api";
 
 
-const ADD_WHEELS = 'ADD_WHEELS';
-const UPDATE_NEW_WHEELS = 'UPDATE_NEW_WHEELS';
+
 const CHANGE_CART = 'CHANGE_CART';
  const ADD_COUNT = 'ADD_COUNT';
 const MINUS_COUNT = 'MINUS_COUNT';
@@ -16,14 +15,6 @@ const GET_WHEEL ='GET_WHEEL'
 
 let initialState={
     wheels:[],
-    newWheels:{
-        marka: 'marka',
-        age:'age',
-        radius:'radius',
-        stan: 'stan',
-        price: 'price'
-
-    },
     wheelsCopy:[],
     wheelsCopy0:[],
     isFetching:false,
@@ -36,24 +27,6 @@ const wheelReducer = (state=initialState, action)=> {
             return {
                 ...state,
                 currentWheel: [action.body]
-            }
-        case UPDATE_NEW_WHEELS:
-            return {
-                ...state,
-                newWheels: {...action.updateWheel,cart:false, count:0, id:state.wheels.length+1,img:'https://i2.rozetka.ua/goods/16232738/171057209_images_16232738754.jpg'  }
-            }
-        case ADD_WHEELS:
-            return {
-                ...state,
-                newWheels: {
-                    marka: '',
-                    age: '',
-                    radius: '',
-                    stan: '',
-                    price:'',
-                    id: '',
-                    img:''
-                }
             }
         case CHANGE_CART:
             return {
@@ -84,12 +57,9 @@ const wheelReducer = (state=initialState, action)=> {
                     if (w.id===action.idWheel){
                         if(w.count>0){
                             return  {...w, count: w.count-1}
-                        }
-                        return w
-                    }
-                    return w
+                        }  return w
+                    } return w
                 })
-
             }
         case SEARCH_WHEEL:
             let arr = action.text !==''? state.wheels.map(w=>{
@@ -99,13 +69,7 @@ const wheelReducer = (state=initialState, action)=> {
             return {
                 ...state,
                 wheels: arr
-               //      state.wheels.map(w=>{
-               //     let flag = w.marka===action.text
-               //
-               //      return {...w, hide: flag ? false: true }
-               // })
-
-            }
+               }
         case TO_UP:
             let arr0 =[...state.wheels]
             return {
@@ -134,10 +98,8 @@ const wheelReducer = (state=initialState, action)=> {
         case SET_WHEELS:
             return {
                 ...state,
-                // wheels: [...state.wheels, action.wheels.filter(w=>w.radius>state.wheels.length+1)],
                 wheels: [...action.wheels],
                 wheelsCopy: [...action.wheels],
-                currentWheel: [],
 
                             }
         case IS_FETCHING:
@@ -155,14 +117,13 @@ export const setIsFetching =(body) =>({ type:  IS_FETCHING,body })
 export  const setWheels= (wheels) =>({type: SET_WHEELS,wheels })
 export const  showToRadius = (r,flag) =>({ type: SHOW_RADIUS , r , flag })
 export const  searchWheel = (text) =>({ type: SEARCH_WHEEL, text })
-export const  getWheel = (body) =>({ type: GET_WHEEL, body })
 export const  WheelsToUp = () =>({ type: TO_UP })
 export const  WheelsToLow = () =>({ type: TO_LOW })
 export const  minusCount = (idWheel) =>({ type: MINUS_COUNT, idWheel })
 export const  addCount = (idWheel) =>({ type: ADD_COUNT, idWheel })
 export const  changeCart = (idWheel) =>({ type: CHANGE_CART, idWheel })
-export const cleanNewWheels = () => ({type: ADD_WHEELS})
-export const updataWheels = (updateWheel) => ({type: UPDATE_NEW_WHEELS, updateWheel})
+export const GetWheel =(body) =>({ type:  GET_WHEEL,body })
+
 
 
 export const ThunkGetWheels = () => {
@@ -171,20 +132,7 @@ export const ThunkGetWheels = () => {
        WheelAPI.getwheels()
             .then(response => {
                 dispatch(setIsFetching(false))
-
                     dispatch(setWheels(response.data))
-
-            })
-    }
-}
-
-export const ThunkGetWheel = (ID) => {
-    return  (dispatch) => {
-        dispatch(setIsFetching(true))
-        WheelAPI.getWheel(ID)
-            .then(response => {
-                dispatch(setIsFetching(false))
-                    dispatch(getWheel(response.data))
 
             })
     }
@@ -193,9 +141,39 @@ export const ThunkGetWheel = (ID) => {
 export const ThunkAddWheel =  (wheel) => {
     return async (dispatch) => {
         await WheelAPI.request('api/product','POST',wheel)
-                   await (response => {
-                         dispatch(setWheels( response))
-            })
+                 // await (response => {
+                       //  dispatch(setWheels( response))
+           // })
+    }
+}
+
+export const ThunkUpdateWheel =  (body,id) => {
+    console.log(body)
+    return  (dispatch) => {
+         WheelAPI.request(`/api/product/${id}`,'PUT',body)
+             .then((response => {
+                       console.log(response)
+                 GetWheel(body)
+            }))
+    }
+}
+
+export const ThunkGetWheel =  (id) => {
+    return  (dispatch) => {
+         WheelAPI.request(`/wheels/api/product/${id}`,'get')
+             .then( (response => {
+          //  console.log(response)
+            dispatch(GetWheel(response))
+        }))
+    }
+}
+export const ThunkDeleteWheel =  (id) => {
+    return  (dispatch) => {
+         WheelAPI.request(`/api/product/${id}`,'delete')
+             .then( (response => {
+            console.log(response)
+
+        }))
     }
 }
 

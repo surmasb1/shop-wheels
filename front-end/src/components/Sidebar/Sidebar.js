@@ -2,7 +2,6 @@ import React from 'react';
 import './Sidebar.css'
 
 const Sidebar= (props)=>{
-
     let searchRef = React.createRef()
     let radiushRef16 = React.createRef()
     let radiushRef17 = React.createRef()
@@ -17,14 +16,6 @@ const Sidebar= (props)=>{
         let text = searchRef.current.value;
         searchWheel(text)
     }
-//console.log(window.location.href.search('/wheels') )
-
-    // if (window.location.href.search('/wheels') === true ) {
-    //     console.log( '/wheels')}
-    // if (window.location.href.search('/cicle') ) {
-    //     console.log('/cicle')}
-    // if (window.location.href.search('/household-appliances') ) {
-    //     console.log('/household-appliances')}
 
     return (
 
@@ -35,13 +26,16 @@ const Sidebar= (props)=>{
                        onChange={onsearchWheel}
                 />
             </div>
-            {window.location.href.search('/wheels') === -1 ?
-                <div></div>
+            {window.location.href.search('http://localhost:3000/wheels') === -1 ?
+                <div>.</div>
                 :
                 <div>
                     <div>
                         <input type='checkbox' ref={radiushRef16}
-                               onChange={(e) => showToRadius(16, radiushRef16.current.checked)}
+
+                               onChange={(e) => showToRadius(16,
+                                 radiushRef16.current.checked)}
+
                         />
                         <span>radius 16</span>
                     </div>
@@ -70,30 +64,6 @@ const Sidebar= (props)=>{
                         <span>radius 20</span>
                     </div>
                 </div> }
-
-            {window.location.href.search('/cicle') === -1 ?
-                <div></div>
-                :
-                <div>
-                    <div>
-
-                        <span>velik 1</span>
-                    </div>
-                    <div>
-                        <span>velik 2</span>
-                    </div>
-                    <div>
-                        <span>velik 3</span>
-                    </div>
-                    <div>
-                        <span>velik 4</span>
-                    </div>
-
-                </div>
-            }
-
-
-
             <h5>Sidebar</h5>
         </div>
     )

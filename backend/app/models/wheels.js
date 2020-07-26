@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const AllWheelsSchema = new mongoose.Schema({
-    id:Number,
+    id:String,
     marka: String,
     price: Number,
     radius:Number,

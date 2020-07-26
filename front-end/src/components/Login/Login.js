@@ -1,55 +1,52 @@
 import React from "react";
 import {Redirect} from "react-router-dom";
 import s from './Login.module.css'
-const Login= (props)=>{
+import {Field, reduxForm} from "redux-form";
+import {maxLengthCreator, required} from "../../utils/validator";
+import {Input} from "../../utils/forms";
 
-    let email = React.createRef()
-    let password = React.createRef()
+const Login = (props) => {
 
-    let senddata = () =>{
-
-        let body={
-            email: email.current.value,
-            password: password.current.value
-        }
-        props.getAuthUserData(body)
-
-
-
-
-
+    const onSubmit =(formData)=>{
+       props.getAuthUserData(formData)
+        console.log(formData)
     }
-    if(props.isAuth) {return <Redirect to={'/admin'}/>}
+
+    if (props.isAuth) {
+        return <Redirect to={'/admin'}/>
+    }
 
     return (
         <div>
-
+            <h3>Login</h3>
+            <LoginReduxForm onSubmit={onSubmit}/>
             <div>
-                <span>login</span>
-                <input
-                    ref={email}
-                />
+                {props.err ? <p className={s.login}> {props.err.message} </p> : ''}
             </div>
-            <div>
-                <span>password</span>
-                <input
-
-                    ref={password}
-                />
-
-            </div>
-            <div><button
-                onClick={
-                    senddata
-                }
-            >отправити</button>
-            </div>
-
-<div>  {props.err ? <p className={s.login}> {props.err.message} </p>:''}
-</div>
         </div>
     );
 }
+let maxLength10 =  maxLengthCreator(10)
 
-
+ const LoginForm=(props)=>{
+     return (
+             <form onSubmit={props.handleSubmit}>
+                 <div>
+                     <Field name={'email'} placeholder={"login "}
+                            validate={[required, maxLength10]}
+                            component={Input}/>
+                 </div>
+                 <div>
+                     <Field name={'password'} placeholder={"password"}
+                            type={"password"}
+                            component={Input}
+                            validate={[required, maxLength10]}/>
+                 </div>
+                 <div>
+                     <button>Увійти</button>
+                 </div>
+             </form>
+     );
+ }
+ const LoginReduxForm = reduxForm({form:'login'})(LoginForm)
 export default Login;

@@ -1,18 +1,13 @@
 import React from 'react';
 import {Redirect} from "react-router-dom";
 import s from "./Admin.module.css";
+import {Field, reduxForm} from "redux-form";
+import {Input, Textarea} from "../../utils/forms";
+import {maxLengthCreator, required} from "../../utils/validator";
 
 
 
 const Admin = (props) => {
-    let newWheel = props.newWheels
- //  console.log(props)
-    let markaWheel = React.createRef()
-    let ageWheel = React.createRef()
-    let radiusWheel = React.createRef()
-    let stanWheel = React.createRef()
-    let priceWheel = React.createRef()
-
 
     // const [products, setProduct] = useState([])
     // useEffect(() => {
@@ -27,52 +22,13 @@ const Admin = (props) => {
     // }, [])
     // console.log(products)
 
-
-
-    let updateWheel
-    let onChangeWheel = ()=>{
-         updateWheel ={
-             marka: markaWheel.current.value,
-             age:Number(ageWheel.current.value),
-             radius: Number(radiusWheel.current.value),
-             stan: stanWheel.current.value,
-             price:Number(priceWheel.current.value)
-        }
-       props.updataWheels(updateWheel)
-
-    }
-
     let logouts=()=>{
         props.logout()
     }
 
-    let sendWheel = () =>{
-        if (markaWheel.current.value==='' ||
-            ageWheel.current.value==='' ||
-            radiusWheel.current.value===''||
-            stanWheel.current.value==='' ||
-            priceWheel.current.value===''){
-            console.log('ffhgfghgfh')
-            alert('НЕ заполнена одна из опций')
-            }
-        else {
-            // let updateWheel0 ={
-            //     marka: markaWheel.current.value,
-            //     age:Number(ageWheel.current.value),
-            //     radius: Number(radiusWheel.current.value),
-            //     stan: stanWheel.current.value,
-            //     price:Number(priceWheel.current.value)
-            // }
-            //console.log(updateWheel0)
-
-            console.log(newWheel)
-            props.ThunkAddWheel(newWheel)
-          //WheelAPI.request('api/product','POST',updateWheel0)
-
-            props.addwheels()
-        }
-
-
+    const addNewWheel=(values)=>{
+        props.ThunkAddWheel(values)
+        console.log(values)
     }
 
     if(!props.isAuth) {return <Redirect to={'/login'}/>}
@@ -84,61 +40,56 @@ const Admin = (props) => {
                     logouts
                 }>logout</button>
             </div>
-            <div>
-                <div>
-                    <span>marka</span>
-                    <textarea
-                        onChange={onChangeWheel}
-                            value = {newWheel.marka}
-                            ref={markaWheel}
-                    />
-                </div>
-                <div>
-                    <span>age</span>
-                    <input
-                        type="number"
-                        onChange={onChangeWheel}
-                             value = {newWheel.age}
-                             ref={ageWheel}
-                    />
-                </div>
-                <div>
-                    <span>radius</span>
-                    <input
-                        type="number"
-                        onChange={onChangeWheel}
-                            value = {newWheel.radius}
-                            ref={radiusWheel}
-                    />
-                </div>
-                <div>
-                    <span>stan</span>
-                    <textarea
-                        onChange={onChangeWheel}
-                            value = {newWheel.stan}
-                            ref={stanWheel}
-                    />
-                </div>
-                <div>
-                    <span>price</span>
-                    <input
-                        type="number"
 
-                        onChange={onChangeWheel}
-                            value = {newWheel.price}
-                            ref={priceWheel}
-                    />
-                </div>
-                <div><button
-                    onClick={
-                    sendWheel
-                }
-                >отправити</button></div>
-            </div>
+            <AdminFormRedux onSubmit={addNewWheel}/>
+
         </div>
 
     );
 }
+const maxLength10 = maxLengthCreator(10)
+const AdminForm = (props)=>{
 
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <div>
+                <span>marka</span><br/>
+               <Field placeholder={'marka'} name={"marka"}
+                     validate={[required, maxLength10]}
+                      component={Textarea}
+               />
+
+            </div>
+            <div>
+                <span>age</span><br/>
+                <Field placeholder={'age'} type={"number"} name={"age"}
+                    validate={[required, maxLength10]}
+                 component={Input}/>
+            </div>
+            <div>
+                <span>radius</span><br/>
+                <Field placeholder={'radius'}
+                      validate={[required, maxLength10]}
+                name={"radius"} type={"number"} component={Input}/>
+            </div>
+            <div>
+                <span>stan</span><br/>
+                <Field placeholder={'stan'}
+                       validate={[required, maxLength10]}
+                name={"stan"} component={Textarea}/>
+            </div>
+            <div>
+                <span>price</span><br/>
+                <Field placeholder={'price'}
+                       validate={[required, maxLength10]}
+                name={"price"} type={"number"} component={Input}/>
+            </div>
+            <div>
+                <button>Відправити</button>
+            </div>
+        </form>
+    )
+}
+const AdminFormRedux = reduxForm({form:'adminform'})(AdminForm)
 
 export default Admin;
