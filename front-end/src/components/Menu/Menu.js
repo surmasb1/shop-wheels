@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './Menu.module.css'
 import {NavLink} from "react-router-dom";
-
+import { Typography } from '@material-ui/core';
 
 const Menu= ()=>{
     const menu = [
@@ -21,17 +21,12 @@ const Menu= ()=>{
             {menu.map((item,index)=>{
                 let path = '/' + item.eng
                 return(
-
-                       <div className={s.nav} key={index}>
-                           <NavLink className={s.link} activeClassName={s.active} to={path}><p >{item.ua}</p></NavLink>
-                       </div>
-
-
+                       // <div >
+                           <NavLink className={s.link} key={index} activeClassName={s.active} to={path}><p >{item.ua}</p></NavLink>
+                       // </div>
                 )
             })}
-
         </nav>
-
         </div>
     );
 }

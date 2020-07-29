@@ -1,0 +1,26 @@
+.sidebar{
+    float: left;
+    grid-area: s;
+   background: -webkit-linear-gradient( left, green,chartreuse );
+border-radius: 10px;
+    margin: 0px;
+    box-shadow: lightgrey -5px 5px;
+}
+.search{
+    text-align: center;
+    height: 30px;
+    padding-bottom: 3px;
+    padding-top: 30px;
+;
+}
+.search input{
+    width: 75%;
+    height: 20px;
+    border-radius: 5px;
+    /*border: #247824 2px solid;*/
+    border: none
+}
+input:focus {
+    border: none;
+
+}

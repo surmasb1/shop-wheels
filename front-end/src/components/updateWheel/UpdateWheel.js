@@ -4,8 +4,6 @@ import {Field, reduxForm} from "redux-form";
 import {Input, Textarea} from "../../utils/forms";
 
 
-
-
 const UpdateWheel = (props) => {
     console.log(props)
     const id =props.id

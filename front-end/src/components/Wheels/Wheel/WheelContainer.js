@@ -15,7 +15,6 @@ import Preloader from "../../common/Preloder/Preloder";
 class WheelContainer extends React.Component {
 
 
-
     componentDidMount() {
         this.props.ThunkGetWheel(this.props.match.params.id)
     }

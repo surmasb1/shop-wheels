@@ -1,5 +1,7 @@
 import React from 'react';
-import './Sidebar.css'
+import s from './Sidebar.module.css';
+import { Input  } from '@material-ui/core';
+
 
 const Sidebar= (props)=>{
     let searchRef = React.createRef()
@@ -9,7 +11,7 @@ const Sidebar= (props)=>{
     let radiushRef19 = React.createRef()
     let radiushRef20 = React.createRef()
 
-  let searchWheel = props.searchWheel;
+    let searchWheel = props.searchWheel;
     let showToRadius = props.showToRadius
 
     let onsearchWheel= ()=>{
@@ -18,16 +20,16 @@ const Sidebar= (props)=>{
     }
 
     return (
-
-        <div className='sidebar'>
-            <div>
-                <input placeholder="Поиск по сайту"
+        <div className={s.sidebar}>
+            <div className={s.search}>
+                <input type='text'
+                           placeholder="    Пошук "
                        ref={searchRef}
                        onChange={onsearchWheel}
                 />
             </div>
             {window.location.href.search('http://localhost:3000/wheels') === -1 ?
-                <div>.</div>
+                <div></div>
                 :
                 <div>
                     <div>
@@ -35,36 +37,35 @@ const Sidebar= (props)=>{
 
                                onChange={(e) => showToRadius(16,
                                  radiushRef16.current.checked)}
-
                         />
-                        <span>radius 16</span>
+                        <text>radius 16</text>
                     </div>
                     <div>
                         <input type='checkbox' ref={radiushRef17}
                                onChange={(e) => showToRadius(17, radiushRef17.current.checked)}
                         />
-                        <span>radius 17</span>
+                        <text>radius 17</text>
                     </div>
                     <div>
                         <input type='checkbox' ref={radiushRef18}
                                onChange={(e) => showToRadius(18, radiushRef18.current.checked)}
                         />
-                        <span>radius 18</span>
+                        <text>radius 18</text>
                     </div>
                     <div>
                         <input type='checkbox' ref={radiushRef19}
                                onChange={(e) => showToRadius(19, radiushRef19.current.checked)}
                         />
-                        <span>radius 19</span>
+                        <text>radius 19</text>
                     </div>
                     <div>
                         <input type='checkbox' ref={radiushRef20}
                                onChange={(e) => showToRadius(20, radiushRef20.current.checked)}
                         />
-                        <span>radius 20</span>
+                        <text>radius 20</text>
                     </div>
                 </div> }
-            <h5>Sidebar</h5>
+
         </div>
     )
 }

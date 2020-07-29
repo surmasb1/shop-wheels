@@ -2,27 +2,14 @@ import React from 'react';
 import {NavLink} from "react-router-dom";
 import s from './Wheel.module.css'
 
-
 const Wheel = (props) => {
-    console.log(props)
+  //  console.log(props)
      const wheel = props.wheel[0]
     let changeCart = props.changeCart
     let addCount =props.addCount
     let minusCount= props.minusCount
 
 
-    // const [products, setProduct] = useState([])
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         const a = await axios.get("/api/product")
-    //         setProduct(a.data)
-    //         // console.log(a)
-    //     }
-    //     fetchData();
-    //
-    //
-    // }, [])
-    // console.log(products)
 
     return (
         props.wheel.length > 0 ?
@@ -31,7 +18,9 @@ const Wheel = (props) => {
                     <img width='270px' height='250px' src={wheel.img} alt="ytvfdvn"/>
                     {wheel.cart
                         ?<div>
-                            <button onClick={() => {addCount(wheel.id)
+                            <button onClick={() => {
+                                addCount(wheel.id)
+                                //fetchData(count: wheel.count+1, wheel.id);
                             }}>+</button>
                             <button onClick={() => {
                                 minusCount(wheel.id)

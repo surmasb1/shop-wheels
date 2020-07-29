@@ -1,27 +1,44 @@
 .header{
     grid-area: h;
-    background-color: white;
+    background-color: #e2efe0;
     text-align: center;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    margin: 0px;
+    padding: 0px;
+}
+.button1{
+    background-color: greenyellow;
+    border-radius: 5px;
+border: none;
 
 }
-.head{
-    font-size: 15px;
-    margin: 20px;
-    padding: 0;
-    grid-column: 3;
-
-    text-align: right;
+.button1:active,   .button1:focus{
+    border: none;
 }
+.button1:hover{
+    border: none;
+
+}
+
 .img{
     grid-column: 2;
 }
-.login{
-    font-size: 12px;
-    margin: 0px;
-    padding: 0;
+.cartlogin{
     grid-column: 3;
-
     text-align: right;
 }
+a{
+    text-decoration: none;
+}
+
+.divcart{
+    width: 25px;
+    height: 25px;
+    background-color: greenyellow;
+    border-radius: 50%;
+    text-align: center;
+    margin-left:auto;
+}
+
+

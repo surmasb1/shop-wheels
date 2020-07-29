@@ -1,5 +1,5 @@
 import React from 'react';
-import './Sidebar.css'
+import './Sidebar.module.css'
 import {connect} from "react-redux";
 import Sidebar from "./Sidebar";
 

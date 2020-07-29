@@ -2,30 +2,29 @@ import React from 'react';
 import s from './Header.module.css'
 import img from '../../images/header-wheels.png'
 import {NavLink} from "react-router-dom";
-
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import Button from '@material-ui/core/Button';
 
 const Header= (props)=>{
-    //console.log(props)
     let a=[]
     let wheels = props.wheels===undefined ? a : props.wheels.filter(w=>w.cart===true ) ;
     return (
         <div className={s.header}>
-            <NavLink className={s.img} to="/">
-                <img src={img} width='50%' height="50%" alt="lorem"/>
-            </NavLink>
-            <div>
-                <NavLink to="/login">
-                <h5 className={s.login}>{props.isAuth? props.login: <p>Login</p>} </h5>
-            </NavLink>
-
-                <NavLink to="/cart">
-                    <h5 className={s.head}>CART {wheels.length}</h5>
-                </NavLink>
-                <NavLink to="/admin">
-                    <h2 className={s.head}>ADMIN </h2>
+            <div className={s.img}>
+                <NavLink  to="/">
+                    <img src={img} width='60%' height="60%" alt="lorem"/>
                 </NavLink>
             </div>
-
+            <div className={s.cartlogin} >
+                    <NavLink  to="/login">
+                        <h5>{props.isAuth ? props.login : <Button variant="text" size='small'  >Вхід</Button>} </h5>
+                    </NavLink>
+                        <div className={s.divcart}>
+                            {wheels.length}</div>
+                        <NavLink  to="/cart">
+                           <ShoppingCartIcon fontSize="large"/>
+                    </NavLink>
+            </div>
         </div>
     );
 }

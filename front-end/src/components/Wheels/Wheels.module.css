@@ -2,7 +2,7 @@
     display: grid;
     grid-area: w;
 
-    grid-template-columns: 1fr  1fr  1fr  1fr ;
+    grid-template-columns: 25%  25%  25%  25% ;
 
     text-align: center;
 }
