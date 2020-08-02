@@ -8,14 +8,12 @@
   'f f';
 
   grid-template-columns: 1fr 5fr ;
-  grid-template-rows: 150px 40px 100% 30px ;
+  grid-template-rows: 150px 40px 100% 1fr ;
   padding: 0px 10px;
 
 
 }
-body{
-  background-color: #e2efe0;
-}
+
 /*.header{*/
 /*  grid-area: h;*/
 /*  background-color: aqua;*/

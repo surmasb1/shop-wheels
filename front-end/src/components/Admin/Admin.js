@@ -47,7 +47,7 @@ const Admin = (props) => {
 
     );
 }
-const maxLength10 = maxLengthCreator(10)
+const maxLength10 = maxLengthCreator(30)
 const AdminForm = (props)=>{
 
     return (

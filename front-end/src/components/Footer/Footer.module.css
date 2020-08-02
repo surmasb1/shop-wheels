@@ -1,5 +1,14 @@
 .footer{
     grid-area: f;
-    background-color: orangered;
+    border-radius: 10px;
+    background: -webkit-linear-gradient( left, #03e003,greenyellow, #fcee00);
+    display: flex;
 }
 
+.footer h5 {
+    margin: 2px;
+    padding: 2px;
+}
+.footer span{
+
+}

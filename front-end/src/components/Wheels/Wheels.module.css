@@ -5,12 +5,18 @@
     text-align: center;
 }
 .wheel{
-    background-color: #4aff36;
+    display: grid;
+    background-color: rgb(209, 213, 179);
     padding: 10px;
     margin: 10px;
     box-shadow:  8px 8px 8px rgb(53,167,110);
     border-radius: 10px;
 }
+.wheel h5{
+    padding: 0px;
+    margin: 0px;
+}
+
 .wheel h2 {
     padding: 0;
     margin: 0;
@@ -33,31 +39,37 @@
 .divfilter{
     margin: 3px;
 }
-.btnFilter{
 
+.btnFilter1{
+font-weight: bold;
     font-family:roboto ;
     color: #240202;
     text-decoration: none;
     padding: .4em 0.5em ;
     border-radius: 3px;
-    background: rgb(64,199,129);
-    box-shadow:-3px -3px rgb(53,167,110) inset;
+    background: rgb(20, 231, 8);
+    box-shadow:-7px -7px  7px rgb(1, 78, 12) inset;
     transition: 0.2s;
     border: none;
-    margin: 0 10px ;
-}
-.btnFilter1{
+    margin: 3px 3px ;
 
+    height: 30px;
+
+}
+.btnFilter{
+    font-weight: bold;
     font-family:roboto ;
     color: #240202;
     text-decoration: none;
     padding: .4em 0.5em ;
     border-radius: 3px;
-    background: rgb(202, 250, 243);
-    box-shadow:-3px -3px  5px rgb(12, 88, 45) inset;
+    background: rgb(0, 255, 42);
+
     transition: 0.2s;
     border: none;
     margin: 0 3px ;
+
+    height: 100%;
 }
 .btnFilter:active {
     background: rgb(33,147,90);
@@ -71,4 +83,79 @@
     outline: none;
     border: none;
 }
+.marka{
+    font-family: monospace ;
+    color: #002566;
+    font-size: 30px;
+    /*border: 3px solid #9eea9e;*/
+    /*border-radius: 12px;*/
+    font-style: italic;
 
+
+}
+.marka:active{
+    color: #100000;
+}
+.marka:hover{
+    color: #000105;
+}
+.divcart1{
+color: #b81318;
+    font-weight: bold;
+    font-size: 27px;
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    border: 1px solid #0071fc;
+    text-align: center;
+    margin-left:auto;
+    position: relative;
+    margin-bottom:-45px;
+    top: -250px;
+    left: -5px;
+
+    box-shadow: -5px  -5px  5px rgb(53, 99, 167) inset;
+}
+
+.img{
+    padding: 3px;
+}
+.btnFilterplusminus{
+    font-family:roboto ;
+    color: #240202;
+    text-decoration: none;
+    padding: .4em 0.5em ;
+    border-radius: 5px;
+    background: rgb(20, 231, 8);
+    box-shadow:-7px -7px  7px rgb(1, 78, 12) inset;
+    transition: 0.2s;
+    margin: 0 3px ;
+    width: 30px;
+    height: 30px;
+    border: none;
+}
+
+.inforadius{
+    color: #00219a;
+    font-family:roboto ;
+    font-size: 20px;
+    font-weight: bold;
+
+
+}
+
+.infoprice{
+    font-family:roboto ;
+    font-size: 30px;
+    border: 2px solid #08d405;
+    border-radius: 5px;
+    color: red;
+}
+.stringinfo{
+    color: #00219a;
+    font-family:roboto ;
+    font-size: 20px;
+    font-weight: bold;
+
+}

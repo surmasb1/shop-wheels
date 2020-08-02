@@ -22,27 +22,31 @@ const Wheels= (props)=>{
                 {wheels.map((wheel)=>{
                     return(
                         <div key={wheel.id} className={wheel.hide ? s.hide :s.wheel }>
-                            <img width='270px' height='250px' src={wheel.img} alt="ytvfdvn"/>
+                            <NavLink to={'/wheels/' +wheel.id }> <img className={s.img} width='270px' height='250px' src={wheel.img} alt="ytvfdvn"/> </NavLink>
+
+                            {wheel.count!==0? <div className={s.divcart1}>
+                                {wheel.count}</div>:''}
+
+                            <NavLink to={'/wheels/' +wheel.id }>  <h2 className={s.marka}>  {wheel.marka} </h2></NavLink>
+                            <p className={s.inforadius}>R  - {wheel.radius} дюймів</p>
+                            <p className={s.stringinfo} >Сезон - {wheel.stan}</p>
+                            <p className={s.infoprice}>Ціна -{wheel.price}$</p>
                             {wheel.cart
                                 ?<div>
-                                    <button className={s.btnFilter1} onClick={() => {addCount(wheel.id)}}>+</button>
-                                    <button className={s.btnFilter1} onClick={() => {
+                                    <button className={s.btnFilterplusminus} onClick={() => {addCount(wheel.id)}}>+</button>
+                                    <button className={s.btnFilterplusminus} onClick={() => {
                                         minusCount(wheel.id)
                                         if (wheel.count ===1){
                                             changeCart(wheel.id)
                                         }}}>-</button>
                                     <button className={s.btnFilter1}
-                                        onClick={() => {changeCart(wheel.id)
-                                        }}> Видалити з корзини</button>
+                                            onClick={() => {changeCart(wheel.id)
+                                            }}> Видалити з корзини</button>
                                 </div>
                                 : <button className={s.btnFilter1}
-                                    onClick={() => {changeCart(wheel.id)
-                                    }}>  Добавити в корзину</button>}
-                            <NavLink to={'/wheels/' +wheel.id }>  <h2> marka - {wheel.marka} {wheel.count}</h2></NavLink>
-                            <p>radius - {wheel.radius}</p>
-                            <p>price - {wheel.price}</p>
-                            <p>age - {wheel.age}</p>
-                            <p>id - {wheel.id}</p>
+                                          onClick={() => {changeCart(wheel.id)
+                                          }}>  Добавити в корзину</button>}
+
                             <div>
                                 {
                                     isAuth?<NavLink to={"/update/" +wheel.id }>
