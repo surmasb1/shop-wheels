@@ -1,7 +1,5 @@
 import React from 'react';
 import s from './Sidebar.module.css';
-import { Input  } from '@material-ui/core';
-
 
 const Sidebar= (props)=>{
     let searchRef = React.createRef()
@@ -29,40 +27,40 @@ const Sidebar= (props)=>{
                 />
             </div>
             {window.location.href.search('http://localhost:3000/wheels') === -1 ?
-                <div></div>
+                <div>/</div>
                 :
                 <div>
-                    <div>
+                    <div className={s.divInput}>
                         <input type='checkbox' ref={radiushRef16}
 
                                onChange={(e) => showToRadius(16,
                                  radiushRef16.current.checked)}
                         />
-                        <text>radius 16</text>
+                        <span>radius 16</span>
                     </div>
-                    <div>
+                    <div className={s.divInput}>
                         <input type='checkbox' ref={radiushRef17}
                                onChange={(e) => showToRadius(17, radiushRef17.current.checked)}
                         />
-                        <text>radius 17</text>
+                        <span>radius 17</span>
                     </div>
-                    <div>
+                    <div className={s.divInput}>
                         <input type='checkbox' ref={radiushRef18}
                                onChange={(e) => showToRadius(18, radiushRef18.current.checked)}
                         />
-                        <text>radius 18</text>
+                        <span>radius 18</span>
                     </div>
-                    <div>
+                    <div className={s.divInput}>
                         <input type='checkbox' ref={radiushRef19}
                                onChange={(e) => showToRadius(19, radiushRef19.current.checked)}
                         />
-                        <text>radius 19</text>
+                        <span >radius 19</span>
                     </div>
-                    <div>
+                    <div className={s.divInput}>
                         <input type='checkbox' ref={radiushRef20}
                                onChange={(e) => showToRadius(20, radiushRef20.current.checked)}
                         />
-                        <text>radius 20</text>
+                        <span>radius 20</span>
                     </div>
                 </div> }
 

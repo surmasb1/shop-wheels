@@ -27,6 +27,7 @@ class WheelsContainer extends React.Component {
                     addCount={this.props.addCount}
                     WheelsToUp={this.props.WheelsToUp}
                     WheelsToLow={this.props.WheelsToLow}
+                    auth={this.props.auth}
             />}
         </>
     }
@@ -35,8 +36,7 @@ class WheelsContainer extends React.Component {
 let mapStateToProps = (state) => ({
 
         wheels: state.wheeldata.wheels,
-    isFetching: state.wheeldata.isFetching
-
+        auth:state.auth.isAuth,
 })
 
 export default connect(mapStateToProps, { changeCart,

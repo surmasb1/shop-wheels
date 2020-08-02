@@ -17,7 +17,7 @@ const Header= (props)=>{
             </div>
             <div className={s.cartlogin} >
                     <NavLink  to="/login">
-                        <h5>{props.isAuth ? props.login : <Button variant="text" size='small'  >Вхід</Button>} </h5>
+                        <h5 className={s.user}>{props.isAuth ? props.login : <Button variant="text" size='small'  >Вхід</Button>} </h5>
                     </NavLink>
                         <div className={s.divcart}>
                             {wheels.length}</div>

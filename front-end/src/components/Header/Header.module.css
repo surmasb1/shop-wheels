@@ -20,6 +20,9 @@ border: none;
     border: none;
 
 }
+.user{
+    text-decoration: inherit;
+}
 
 .img{
     grid-column: 2;

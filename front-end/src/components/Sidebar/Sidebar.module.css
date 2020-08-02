@@ -11,6 +11,7 @@ border-radius: 10px;
     height: 30px;
     padding-bottom: 3px;
     padding-top: 30px;
+
 ;
 }
 .search input{
@@ -18,9 +19,40 @@ border-radius: 10px;
     height: 20px;
     border-radius: 5px;
     /*border: #247824 2px solid;*/
-    border: none
+    outline: none;
 }
 input:focus {
     border: none;
 
 }
+.span{
+    color: #000000;
+    margin-left: 10px;
+    border-radius: 5px;
+    font-family:roboto;
+    padding: 5px;
+    font-weight: bold;
+}
+.divInput{
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #094b03;;
+}
+.divInput span{
+    color: #000000;
+}
+.divInput input{
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    flex-grow: 0;
+
+    border-radius: 1em;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;;
+}
+
