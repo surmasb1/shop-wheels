@@ -1,7 +1,6 @@
 import React from 'react';
 import s from './Menu.module.css'
 import {NavLink} from "react-router-dom";
-import { Typography } from '@material-ui/core';
 
 const Menu= ()=>{
     const menu = [
