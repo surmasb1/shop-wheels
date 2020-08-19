@@ -2,43 +2,19 @@
 
   display: grid;
   grid-template-areas:
+  'n n'
   'h h'
   's m'
   's w'
   'f f';
 
   grid-template-columns: 1fr 5fr ;
-  grid-template-rows: 150px 40px 100% 1fr ;
+  grid-template-rows:100px 270px  40px 100% 1fr;
   padding: 0px 10px;
 
 
 }
 
-/*.header{*/
-/*  grid-area: h;*/
-/*  background-color: aqua;*/
 
-
-/*}*/
-/*.menu{*/
-/*  grid-area: m;*/
-/*  background-color: chartreuse;*/
-
-/*}*/
-/*.sidebar{*/
-/*  grid-area: s;*/
-/*  background-color: darkgoldenrod;*/
-
-/*}*/
-/*.footer{*/
-/*  grid-area: f;*/
-/*  background-color: orangered;*/
-
-/*}*/
-/*.wheels{*/
-/*  grid-area: w;*/
-/*  background-color: darkblue;*/
-
-/*}*/
 
 

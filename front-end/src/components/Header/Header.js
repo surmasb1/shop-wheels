@@ -9,23 +9,26 @@ const Header= (props)=>{
     let a=[]
     let wheels = props.wheels===undefined ? a : props.wheels.filter(w=>w.cart===true ) ;
     return (
+
         <div className={s.header}>
-            <div className={s.img}>
-                <NavLink  to="/">
-                    <img src={img} width='60%' height="60%" alt="lorem"/>
-                </NavLink>
-            </div>
-            <div className={s.cartlogin} >
+                <div className={s.img}>
+                    <NavLink  to="/">
+                        <img src={img} width='100%' height="100%" alt="lorem"/>
+                    </NavLink>
+                </div>
+                <div className={s.cartlogin} >
                     <NavLink  to="/login">
                         <h5 className={s.user}>{props.isAuth ? props.login : <Button variant="text" size='small'  >Вхід</Button>} </h5>
                     </NavLink>
-                        <div className={s.divcart}>
-                            {wheels.length}</div>
-                        <NavLink  to="/cart">
-                           <ShoppingCartIcon fontSize="large"/>
+                    <div className={s.divcart}>
+                        {wheels.length}</div>
+                    <NavLink  to="/cart">
+                        <ShoppingCartIcon fontSize="large"/>
                     </NavLink>
+                </div>
             </div>
-        </div>
+
+
     );
 }
 

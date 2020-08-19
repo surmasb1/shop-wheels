@@ -4,8 +4,8 @@ import {NavLink} from "react-router-dom";
 
 const Menu= ()=>{
     const menu = [
-        {ua:'Велосипеди',
-            eng:'cicle'},
+        {ua:'Головна',
+            eng:'main'},
         {ua:'Побутова техніка',
             eng:'household-appliances'},
         {ua:'Колеса',

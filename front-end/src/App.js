@@ -13,6 +13,7 @@ import AdminContainer from "./components/Admin/AdminContainer";
 import SidebarContainer from "./components/Sidebar/SidebarContainer";
 import LoginContainer from "./components/Login/loginContainer";
 import RouterUpdateWheelContainer from "./components/updateWheel/UpdateWheelContainer";
+import NavigatorContainer from "./components/Navigator/NavigatorContainer";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <div className="App">
           <BrowserRouter>
               <Provider store={store}>
+                  <NavigatorContainer/>
                   <HeaderContainer/>
                   <Menu/>
                   <SidebarContainer/>

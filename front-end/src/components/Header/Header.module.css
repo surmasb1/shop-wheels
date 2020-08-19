@@ -4,6 +4,7 @@
     text-align: center;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     margin: 0px;
     padding: 0px;
 }
@@ -27,6 +28,7 @@ border: none;
 .img{
     grid-column: 2;
 }
+
 .cartlogin{
     grid-column: 3;
     text-align: right;

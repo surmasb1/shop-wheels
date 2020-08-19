@@ -103,7 +103,6 @@ const wheelReducer = (state=initialState, action)=> {
 
                             }
         case IS_FETCHING:
-
             return {
                 ...state,
                 isFetching: action.body
@@ -127,14 +126,18 @@ export const GetWheel =(body) =>({ type:  GET_WHEEL,body })
 
 
 export const ThunkGetWheels = () => {
-   return  (dispatch) => {
+   return  async (dispatch) => {
+      // console.log(dispatch)
         dispatch(setIsFetching(true))
-       WheelAPI.getwheels()
-            .then(response => {
-                dispatch(setIsFetching(false))
-                    dispatch(setWheels(response.data))
+       let response = await WheelAPI.getwheels()
+       dispatch(setIsFetching(false))
+       dispatch(setWheels(response.data))
 
-            })
+            // .then(response => {
+
+       console.log(response)
+
+           //})
     }
 }
 

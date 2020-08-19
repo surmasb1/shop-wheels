@@ -1,0 +1,22 @@
+.header{
+    grid-area: n;
+    background-color: #061802;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr ;
+    margin: 0px;
+    padding: 0px;
+}
+.user{
+    color: white;
+    grid-column: 1;
+    text-align: right;
+    padding: 0px 10px;
+    font-family: 'Segoe UI';
+
+}
+.user h4{
+    color: #1cdd05;
+    font-family: 'Segoe UI';
+}

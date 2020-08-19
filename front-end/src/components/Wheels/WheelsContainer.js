@@ -18,7 +18,9 @@ class WheelsContainer extends React.Component {
       this.props.ThunkGetWheels()
           }
 
+
     render() {
+        console.log(this.props.isFetching)
         return <>
             {this.props.isFetching ? <Preloader/>:
             <Wheels wheels={this.props.wheels}
@@ -36,6 +38,7 @@ class WheelsContainer extends React.Component {
 let mapStateToProps = (state) => ({
 
         wheels: state.wheeldata.wheels,
+    isFetching: state.wheeldata.isFetching,
         auth:state.auth.isAuth,
 })
 
