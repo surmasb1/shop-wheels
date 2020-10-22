@@ -1,7 +1,6 @@
 import React from 'react';
 import s from './Wheels.module.css'
 import {NavLink} from "react-router-dom";
-import Button from '@material-ui/core/Button';
 
 const Wheels= (props)=>{
     let isAuth =props.auth

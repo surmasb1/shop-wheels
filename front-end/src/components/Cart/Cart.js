@@ -1,7 +1,6 @@
 import React from 'react';
 import s from './Cart.module.css'
 import {NavLink} from "react-router-dom";
-import Button from '@material-ui/core/Button';
 
 const Cart = (props) => {
     let wheels = props.wheels.filter(w=>w.cart===true );

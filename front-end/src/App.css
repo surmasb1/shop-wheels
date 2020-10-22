@@ -9,7 +9,7 @@
   'f f';
 
   grid-template-columns: 1fr 5fr ;
-  grid-template-rows:100px 270px  40px 100% 1fr;
+  grid-template-rows: 100px 270px  40px 100% 1fr;
   padding: 0px 10px;
 
 

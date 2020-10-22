@@ -17,6 +17,10 @@
 
 }
 .user h4{
-    color: #1cdd05;
+    color: #4929008a;
     font-family: 'Segoe UI';
+}
+.logo{
+    display: grid;
+
 }

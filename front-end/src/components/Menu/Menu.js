@@ -20,9 +20,15 @@ const Menu= ()=>{
             {menu.map((item,index)=>{
                 let path = '/' + item.eng
                 return(
-                       // <div >
-                           <NavLink className={s.link} key={index} activeClassName={s.active} to={path}><p >{item.ua}</p></NavLink>
-                       // </div>
+                      <div>
+ <NavLink className={s.link} key={index} activeClassName={s.active} to={path}>
+                               
+                                   {item.ua}
+                                   
+                               </NavLink>
+                      </div>
+                          
+                      
                 )
             })}
         </nav>
