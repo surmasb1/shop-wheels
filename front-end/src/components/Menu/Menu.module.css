@@ -1,32 +1,26 @@
-.menu{
-    grid-area: m;
-    padding: 0px;
-    margin: 0px auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr  1fr 1fr;
+.wrap {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(240, 240, 240);
 }
-
-.active{
-    font-weight: bold;
-}
-.link{
-    /*font-size: 22px;*/
-    text-decoration: none;
-margin: 5px;
-}
-
 .link {
-    color: white;
-    font-size: 20px;
-    padding: 2px;
-    margin: 2px;
-    text-align: center;
-    color: black;
-    border-radius: 10px;
-    box-shadow: lightgrey 0px 8px;
-    background-color: rgb(73, 52, 19);
+  min-width: 150px;
+  font-size: 25px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin-right: 10px;
+  padding: 0 20px;
+  background-color: rgb(78, 78, 78);
 }
-
-
-
-
+.menu a {
+  color: rgb(240, 240, 240);
+}
+.menu a active {
+  color: white;
+}
+.active {
+  font-weight: bold;
+  background-color: rgb(39, 39, 39);
+}

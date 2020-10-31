@@ -21,13 +21,21 @@ function App() {
       <div className="App">
           <BrowserRouter>
               <Provider store={store}>
-                  <NavigatorContainer/>
-                  <HeaderContainer/>
-                  <Menu/>
-                  <SidebarContainer/>
-                  <Footer/>
-
-              <Switch>
+               {/*    <div>
+                      <NavigatorContainer/>
+                  </div> */}
+                   <div>
+                      <Menu/>
+                  </div>
+                  <div className="Header">
+                        <HeaderContainer/>
+                  </div>
+                 
+                  <div>
+                      <SidebarContainer/>
+                  </div>
+                  <div>
+                      <Switch>
                   <Route exact path='/wheels'
                          render={() => <WheelsContainer/>}/>
                   <Route  path='/wheels/:id?'
@@ -40,8 +48,12 @@ function App() {
                           render={() => <LoginContainer/>}/>
                   <Route  path='/update/:id'
                           render={() => <RouterUpdateWheelContainer/>}/>
-
-              </Switch>
+              </Switch>  
+                  </div>
+                  <div>
+                     <Footer/>
+                  </div>
+ 
               </Provider>
           </BrowserRouter>
       </div>

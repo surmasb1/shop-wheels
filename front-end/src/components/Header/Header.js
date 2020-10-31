@@ -23,8 +23,9 @@ const Header= (props)=>{
                     <div className={s.divcart}>
                         {wheels.length}</div>
                     <NavLink  to="/cart">
-                        <ShoppingCartIcon fontSize="large"/>
-                    </NavLink>
+                    <img width='20%' height='40%' src="https://img.icons8.com/pastel-glyph/64/000000/shopping-cart--v2.png"/>
+{/*                         <ShoppingCartIcon fontSize="large"/>
+ */}                    </NavLink>
                 </div>
             </div>
 

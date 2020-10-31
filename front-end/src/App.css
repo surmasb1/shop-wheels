@@ -1,20 +1,21 @@
 .App {
-
+  box-sizing: border-box;
+  margin: 0;
+}
+.Header {
+  max-height: min-content;
+}
+/* 
+.App {
   display: grid;
   grid-template-areas:
-  'n n'
-  'h h'
-  's m'
-  's w'
-  'f f';
+    "n n"
+    "h h"
+    "s m"
+    "s w"
+    "f f";
 
-  grid-template-columns: 1fr 5fr ;
-  grid-template-rows: 100px 270px  40px 100% 1fr;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 10px 270px 40px 100% 1fr;
   padding: 0px 10px;
-
-
-}
-
-
-
-
+} */

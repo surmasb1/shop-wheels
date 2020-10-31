@@ -9,18 +9,6 @@ import {maxLengthCreator, required} from "../../utils/validator";
 
 const Admin = (props) => {
 
-    // const [products, setProduct] = useState([])
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         const a = await axios.get("/api/product")
-    //         setProduct(a.data)
-    //         // console.log(a)
-    //     }
-    //     fetchData();
-    //
-    //
-    // }, [])
-    // console.log(products)
 
     let logouts=()=>{
         props.logout()

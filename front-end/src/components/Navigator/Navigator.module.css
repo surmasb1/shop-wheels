@@ -1,26 +1,18 @@
-.header{
-    grid-area: n;
-    background-color: #061802;
-    text-align: center;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr ;
-    margin: 0px;
-    padding: 0px;
-}
-.user{
-    color: white;
-    grid-column: 1;
-    text-align: right;
-    padding: 0px 10px;
-    font-family: 'Segoe UI';
+.header {
+  grid-area: n;
+  text-align: center;
+  display: grid;
 
+  margin: 0px;
+  padding: 0px;
 }
-.user h4{
-    color: #4929008a;
-    font-family: 'Segoe UI';
-}
-.logo{
-    display: grid;
 
+/* .header {
+  grid-area: n;
+  text-align: center;
+  display: grid;
+
+  margin: 0px;
+  padding: 0px;
 }
+ */
