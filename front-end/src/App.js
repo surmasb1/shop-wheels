@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Menu from "./components/Menu/Menu";
+import MenuContainer from "./components/Menu/MenuContainer";
 import Footer from "./components/Footer/Footer";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import WheelContainer from "./components/Wheels/Wheel/WheelContainer";
@@ -13,7 +13,6 @@ import AdminContainer from "./components/Admin/AdminContainer";
 import SidebarContainer from "./components/Sidebar/SidebarContainer";
 import LoginContainer from "./components/Login/loginContainer";
 import RouterUpdateWheelContainer from "./components/updateWheel/UpdateWheelContainer";
-import NavigatorContainer from "./components/Navigator/NavigatorContainer";
 
 
 function App() {
@@ -25,7 +24,7 @@ function App() {
                       <NavigatorContainer/>
                   </div> */}
                    <div>
-                      <Menu/>
+                      <MenuContainer/>
                   </div>
                   <div className="Header">
                         <HeaderContainer/>
